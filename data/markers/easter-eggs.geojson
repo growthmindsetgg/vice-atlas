@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [2200, 3800] },
+      "properties": {
+        "id": "egg-001",
+        "name": "Developer's Office",
+        "category": "easter-eggs",
+        "description": "A monitor in this office shows a previous game's loading screen."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [3500, 4400] },
+      "properties": {
+        "id": "egg-002",
+        "name": "Hidden Room — Studio",
+        "category": "easter-eggs",
+        "description": "Shoot the painting in the back room to reveal a hidden door."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4400, 3700] },
+      "properties": {
+        "id": "egg-003",
+        "name": "Talking Mailbox",
+        "category": "easter-eggs",
+        "description": "Punch this mailbox 7 times at midnight for a surprise."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5100, 5200] },
+      "properties": {
+        "id": "egg-004",
+        "name": "UFO Crash Site",
+        "category": "easter-eggs",
+        "description": "Visible only at 3am with the camera mod equipped."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [6000, 4100] },
+      "properties": {
+        "id": "egg-005",
+        "name": "Bigfoot Footprint",
+        "category": "easter-eggs",
+        "description": "Single giant footprint in the mud near the forest path."
+      }
+    }
+  ]
+}

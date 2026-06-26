@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [1800, 2200] },
+      "properties": {
+        "id": "col-001",
+        "name": "Hidden Package — Pier",
+        "category": "collectibles",
+        "description": "Tucked behind the bait shack at the south pier."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [3400, 3100] },
+      "properties": {
+        "id": "col-002",
+        "name": "Hidden Package — Mall Rooftop",
+        "category": "collectibles",
+        "description": "Climb the fire escape on the mall's west side."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4800, 4500] },
+      "properties": {
+        "id": "col-003",
+        "name": "Trophy — Neon Sign",
+        "category": "collectibles",
+        "description": "Shoot the flickering 'O' in the casino sign."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5900, 5800] },
+      "properties": {
+        "id": "col-004",
+        "name": "Hidden Package — Sewer",
+        "category": "collectibles",
+        "description": "Drop into the storm drain east of the freeway."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [2600, 6200] },
+      "properties": {
+        "id": "col-005",
+        "name": "Trophy — Lighthouse",
+        "category": "collectibles",
+        "description": "Top of the abandoned lighthouse, only at night."
+      }
+    }
+  ]
+}

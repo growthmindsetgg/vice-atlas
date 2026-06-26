@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [2400, 3000] },
+      "properties": {
+        "id": "biz-001",
+        "name": "Malibu Club",
+        "category": "businesses",
+        "description": "Nightclub asset. Daily income once secured."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [3800, 4200] },
+      "properties": {
+        "id": "biz-002",
+        "name": "Print Works",
+        "category": "businesses",
+        "description": "Counterfeit-cash front. Mid-game unlock."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4600, 4900] },
+      "properties": {
+        "id": "biz-003",
+        "name": "Sunshine Autos",
+        "category": "businesses",
+        "description": "Used-car lot. Complete car lists for bonuses."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5200, 3600] },
+      "properties": {
+        "id": "biz-004",
+        "name": "Ice Cream Factory",
+        "category": "businesses",
+        "description": "Distribution business. Quiet but steady."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [6400, 5000] },
+      "properties": {
+        "id": "biz-005",
+        "name": "Boatyard",
+        "category": "businesses",
+        "description": "Smuggling operation. Coastal location required."
+      }
+    }
+  ]
+}

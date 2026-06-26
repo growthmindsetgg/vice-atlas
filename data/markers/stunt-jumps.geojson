@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [2100, 4800] },
+      "properties": {
+        "id": "jmp-001",
+        "name": "Bridge Off-Ramp",
+        "category": "stunt-jumps",
+        "description": "Hit the broken ramp on the south bridge at 95+ mph."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [3000, 2800] },
+      "properties": {
+        "id": "jmp-002",
+        "name": "Construction Plank",
+        "category": "stunt-jumps",
+        "description": "Use a fast bike, hit the angled plank head-on."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4500, 5300] },
+      "properties": {
+        "id": "jmp-003",
+        "name": "Mall Skylight",
+        "category": "stunt-jumps",
+        "description": "Drive up the parking garage ramp and through the skylight."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5400, 6100] },
+      "properties": {
+        "id": "jmp-004",
+        "name": "Hotel Pool",
+        "category": "stunt-jumps",
+        "description": "Launch off the parking garage into the rooftop pool."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [6100, 3500] },
+      "properties": {
+        "id": "jmp-005",
+        "name": "Drawbridge Gap",
+        "category": "stunt-jumps",
+        "description": "Time it for when the bridge is just starting to lift."
+      }
+    }
+  ]
+}

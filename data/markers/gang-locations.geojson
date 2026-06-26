@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [2800, 5400] },
+      "properties": {
+        "id": "gng-001",
+        "name": "Diaz Mansion",
+        "category": "gang-locations",
+        "description": "Heavily armed — bring an MP5 and a vest."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [3700, 3300] },
+      "properties": {
+        "id": "gng-002",
+        "name": "Haitian Drug Lab",
+        "category": "gang-locations",
+        "description": "Side entrance through the alley behind the laundromat."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4100, 4700] },
+      "properties": {
+        "id": "gng-003",
+        "name": "Cuban Cafe",
+        "category": "gang-locations",
+        "description": "Front for gun-running. Friendly until you mess up."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5800, 4400] },
+      "properties": {
+        "id": "gng-004",
+        "name": "Biker Hideout",
+        "category": "gang-locations",
+        "description": "Old warehouse. Lots of bikes — and chains."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [6300, 5900] },
+      "properties": {
+        "id": "gng-005",
+        "name": "Forelli Hotel",
+        "category": "gang-locations",
+        "description": "Mafia outpost. Penthouse access requires the keycard."
+      }
+    }
+  ]
+}

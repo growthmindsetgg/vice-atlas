@@ -1,0 +1,22 @@
+# deps
+node_modules/
+.pnp
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+
+# env
+.env*.local
+.env
+
+# tiles are committed so Vercel's CDN serves them directly; regenerate via
+# `npm run tiles:generate -- art/map-source.png` and commit the new pyramid.
+
+# misc
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.vercel

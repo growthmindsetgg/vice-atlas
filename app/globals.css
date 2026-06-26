@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --vice-pink: #ff2bd6;
+  --vice-magenta: #ff45a6;
+  --vice-purple: #8a2be2;
+  --vice-teal: #19f0d0;
+  --vice-cyan: #00e5ff;
+  --vice-yellow: #ffe156;
+  --vice-bg: #0a0414;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--vice-bg);
+  color: #f4eaff;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* Leaflet container override — dark backdrop while tiles load */
+.leaflet-container {
+  background: #08030f;
+  outline: none;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Popup restyle */
+.leaflet-popup-content-wrapper {
+  background: linear-gradient(180deg, #190a36 0%, #0c0420 100%);
+  color: #f4eaff;
+  border: 1px solid rgba(255, 43, 214, 0.4);
+  border-radius: 12px;
+  box-shadow:
+    0 0 18px rgba(255, 43, 214, 0.35),
+    0 0 36px rgba(138, 43, 226, 0.25);
+}
+.leaflet-popup-content {
+  margin: 12px 14px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.leaflet-popup-tip {
+  background: #190a36;
+  box-shadow: 0 0 10px rgba(255, 43, 214, 0.35);
+}
+.leaflet-popup-close-button {
+  color: #ffb3ec !important;
+  font-size: 18px !important;
+  padding: 6px 8px 0 0 !important;
+}
+
+/* Zoom controls */
+.leaflet-bar {
+  border: none !important;
+  box-shadow: 0 0 12px rgba(255, 43, 214, 0.35) !important;
+}
+.leaflet-bar a {
+  background: #1a0a36 !important;
+  color: #ffb3ec !important;
+  border-bottom: 1px solid rgba(255, 43, 214, 0.25) !important;
+}
+.leaflet-bar a:hover {
+  background: #2a1056 !important;
+  color: #fff !important;
+}
+
+/* Attribution */
+.leaflet-control-attribution {
+  background: rgba(10, 4, 20, 0.7) !important;
+  color: #c8a8e8 !important;
+  font-size: 10px !important;
+}
+.leaflet-control-attribution a {
+  color: var(--vice-teal) !important;
+}
+
+/* Custom DivIcon marker */
+.vice-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #0a0414;
+  border: 2px solid rgba(10, 4, 20, 0.9);
+  box-shadow:
+    0 0 6px currentColor,
+    0 0 14px currentColor;
+  transition: transform 0.15s ease;
+}
+.vice-marker.is-found {
+  opacity: 0.35;
+  filter: saturate(0.5);
+}
+.vice-marker:hover {
+  transform: scale(1.2);
+}
+
+/* Pinch-zoom on mobile */
+.leaflet-touch .leaflet-bar a {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+
+/* Custom scrollbars in sidebar */
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 43, 214, 0.3);
+  border-radius: 3px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
