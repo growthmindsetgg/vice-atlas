@@ -109,9 +109,11 @@ That's the whole prod path. No custom build command, no extra config.
 There's exactly **one** place to edit when you swap the tile source: `lib/mapConfig.ts`.
 
 ```ts
+export const TILE_VERSION = "v3";   // <- bump every time tile CONTENT changes
+
 export const mapConfig: MapConfig = {
-  tileUrl: "/tiles/{z}/{x}/{y}.png",
-  tileRoot: "public/tiles",
+  tileUrl: `/tiles/${TILE_VERSION}/{z}/{x}/{y}.png`,
+  tileRoot: `public/tiles/${TILE_VERSION}`,
   mapWidth: 16384,        // <- your source width in px
   mapHeight: 16384,       // <- your source height in px
   tileSize: 256,
@@ -124,19 +126,38 @@ export const mapConfig: MapConfig = {
 };
 ```
 
-Then mirror `MIN_ZOOM` / `MAX_ZOOM` / `TILE_SIZE` at the top of
-`scripts/generate-tiles.mjs`, drop your source PNG somewhere (e.g.
-`art/map-source.png`), and run:
+Then mirror `TILE_VERSION` / `MIN_ZOOM` / `MAX_ZOOM` / `TILE_SIZE` at the top
+of `scripts/generate-tiles.mjs` so the script writes into the matching folder.
+Drop your source PNG somewhere (e.g. `art/map-source.png`) and run:
 
 ```
-rm -rf public/tiles
 npm run tiles:generate -- art/map-source.png
-git add public/tiles && git commit -m "Real map tiles"
+git add public/tiles/v3 && git commit -m "Tile pyramid v3: real launch data"
 ```
 
-The pyramid is committed so Vercel's CDN can serve it cold without
-regenerating. Each tile is set to `Cache-Control: max-age=31536000, immutable`
-by `vercel.json`, so changes to a tile require either a new path or a CDN purge.
+### Why path-based versioning
+
+Tiles ship with `Cache-Control: public, max-age=31536000, immutable` (see
+`vercel.json`). That's deliberate: tiles are huge in aggregate, almost never
+change, and we want Vercel's CDN to serve them cold without revalidation.
+
+But it means CDN + browser caches will keep returning **old** bytes from
+**old paths** for up to a year — even after a redeploy. If you swap the map
+in place (same URL, new bytes), users see the old map until their browser
+TTL expires.
+
+The fix is path-based cache-busting:
+
+- Bump `TILE_VERSION` (`v2` → `v3`).
+- New tiles land at `/tiles/v3/{z}/{x}/{y}.png`.
+- The `MapContainer`'s `<TileLayer>` requests the new path — browsers and
+  the CDN see it as a fresh URL and fetch it.
+- The old `/tiles/v2/...` cache entries become unreachable (no link, no
+  request) and harmlessly expire.
+
+You can either commit the old `v2/` folder for archival or delete it — it's
+unreferenced once the bump lands. The `/tiles/(.*)` rule in `vercel.json`
+matches every version, so the immutable header keeps working without edits.
 
 ---
 

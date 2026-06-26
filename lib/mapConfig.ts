@@ -1,7 +1,16 @@
 /**
  * Single source of truth for the map. Swap the entire tile source by editing
  * this object — no other file should hardcode dimensions, zoom, or tile paths.
+ *
+ * Cache-busting note: tiles are served with `Cache-Control: immutable,
+ * max-age=31536000` (see vercel.json). When tile CONTENT changes but the
+ * path stays the same, the CDN + browsers will keep serving stale tiles for
+ * up to a year. To force every visitor onto fresh tiles, bump TILE_VERSION
+ * below — the path template incorporates it, so the URL changes and the old
+ * immutable cache entries become unreachable. Mirror the bump at the top of
+ * scripts/generate-tiles.mjs so the new tiles land in the matching folder.
  */
+export const TILE_VERSION = "v2";
 
 export type MapConfig = {
   /** Public URL template for tiles. {z}/{x}/{y} are filled in by Leaflet. */
@@ -29,8 +38,8 @@ export type MapConfig = {
 };
 
 export const mapConfig: MapConfig = {
-  tileUrl: "/tiles/{z}/{x}/{y}.png",
-  tileRoot: "public/tiles",
+  tileUrl: `/tiles/${TILE_VERSION}/{z}/{x}/{y}.png`,
+  tileRoot: `public/tiles/${TILE_VERSION}`,
   mapWidth: 8192,
   mapHeight: 8192,
   tileSize: 256,

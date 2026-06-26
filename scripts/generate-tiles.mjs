@@ -29,7 +29,11 @@ const PROJECT_ROOT = path.resolve(__dirname, "..");
 const TILE_SIZE = 256;
 const MIN_ZOOM = 0;
 const MAX_ZOOM = 5;
-const OUT_DIR = path.join(PROJECT_ROOT, "public", "tiles");
+// Path-based cache-busting. Bump alongside TILE_VERSION in lib/mapConfig.ts
+// whenever tile CONTENT changes, so the immutable Cache-Control header at
+// the CDN stops mattering — the URL is different, the cache miss is forced.
+const TILE_VERSION = "v2";
+const OUT_DIR = path.join(PROJECT_ROOT, "public", "tiles", TILE_VERSION);
 
 const args = process.argv.slice(2);
 const isPlaceholder = args.includes("--placeholder");
