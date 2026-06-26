@@ -134,8 +134,8 @@ function makeMarkerIcon(
   return L.divIcon({
     className: "",
     html: `<div style="position:relative">${dot}${ring}</div>`,
-    iconSize: [22, 22],
-    iconAnchor: [11, 11],
+    iconSize: [26, 26],
+    iconAnchor: [13, 13],
   });
 }
 

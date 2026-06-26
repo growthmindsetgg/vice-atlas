@@ -10,6 +10,7 @@
     "tiles:placeholder": "node scripts/generate-tiles.mjs --placeholder",
     "tiles:generate": "node scripts/generate-tiles.mjs",
     "brand:generate": "node scripts/generate-brand.mjs",
+    "basemap:generate": "node scripts/generate-basemap.mjs",
     "postinstall": "node scripts/generate-tiles.mjs --placeholder --if-missing"
   },
   "dependencies": {

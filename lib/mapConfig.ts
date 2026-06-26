@@ -38,7 +38,8 @@ export const mapConfig: MapConfig = {
   maxZoom: 5,
   initialZoom: 2,
   initialCenter: [4096, 4096],
-  attribution: "Map © Game Studio · Site by you",
+  attribution:
+    "Original cartography · Vice Atlas · Unofficial fan project — not affiliated with Rockstar Games",
   displayName: "Vice Atlas",
 };
 

@@ -92,25 +92,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  font-family: "Orbitron", sans-serif;
-  font-weight: 700;
-  font-size: 12px;
+  font-family: "Orbitron", "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1;
   color: #0a0414;
-  border: 2px solid rgba(10, 4, 20, 0.9);
+  border: 2px solid rgba(10, 4, 20, 0.92);
   box-shadow:
-    0 0 6px currentColor,
-    0 0 14px currentColor;
+    0 0 8px currentColor,
+    0 0 18px currentColor,
+    0 2px 4px rgba(0, 0, 0, 0.4);
   transition: transform 0.15s ease;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
 }
 .vice-marker.is-found {
-  opacity: 0.35;
-  filter: saturate(0.5);
+  opacity: 0.4;
+  filter: saturate(0.4);
 }
 .vice-marker:hover {
-  transform: scale(1.2);
+  transform: scale(1.18);
 }
 
 /* Pinch-zoom on mobile */

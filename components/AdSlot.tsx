@@ -8,13 +8,22 @@ type Props = {
 };
 
 /**
- * Placeholder ad slot. Premium users see nothing. Swap the placeholder block
- * for your ad-network embed (AdSense, Ezoic, Snigel, etc.) — keep the same
- * outer wrapper so layout doesn't shift.
+ * Ad slot. By design, renders NOTHING in production until a real ad network is
+ * wired. To preview the placeholder during development, set:
+ *   NEXT_PUBLIC_SHOW_AD_PLACEHOLDERS=1
+ * in .env.local. Premium users never see this regardless.
+ *
+ * When you integrate an ad network (AdSense, Ezoic, Snigel…), replace the
+ * placeholder block below with the network's <ins>/<script> embed and remove
+ * the early-return.
  */
 export default function AdSlot({ slot }: Props) {
   const isPremium = useMapStore((s) => s.isPremium);
   if (isPremium) return null;
+
+  const showPlaceholder =
+    process.env.NEXT_PUBLIC_SHOW_AD_PLACEHOLDERS === "1";
+  if (!showPlaceholder) return null;
 
   return (
     <div

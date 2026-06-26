@@ -48,7 +48,7 @@ export const CATEGORIES: CategoryMeta[] = [
     key: "gang-locations",
     label: "Gang Locations",
     color: "#8a2be2",
-    glyph: "✖",
+    glyph: "✕",
     blurb: "Rival turf & hideouts",
   },
   {
