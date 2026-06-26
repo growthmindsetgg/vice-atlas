@@ -1,11 +1,39 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { CATEGORIES, type CategoryKey } from "@/lib/categories";
 import { useMapStore } from "@/lib/store";
 import type { MarkerFeature } from "@/types";
 import PremiumGate from "@/components/PremiumGate";
 import AdSlot from "@/components/AdSlot";
+
+function OpacityControl() {
+  const opacity = useMapStore((s) => s.opacity);
+  const setOpacity = useMapStore((s) => s.setOpacity);
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-1">
+        <span className="text-[11px] uppercase tracking-widest text-purple-200/60">
+          Marker opacity
+        </span>
+        <span className="text-[11px] font-mono text-neon-teal">
+          {Math.round(opacity * 100)}%
+        </span>
+      </div>
+      <input
+        type="range"
+        min={0.2}
+        max={1}
+        step={0.05}
+        value={opacity}
+        onChange={(e) => setOpacity(Number(e.target.value))}
+        className="w-full accent-pink-500"
+        aria-label="Marker opacity"
+      />
+    </div>
+  );
+}
 
 type Props = {
   features: MarkerFeature[];
@@ -155,6 +183,8 @@ export default function Sidebar({ features, onClose }: Props) {
       </ul>
 
       <div className="px-5 py-3 border-t border-neon-purple/20 space-y-3">
+        <OpacityControl />
+
         <PremiumGate
           feature="hide-found"
           fallback={
@@ -206,6 +236,32 @@ export default function Sidebar({ features, onClose }: Props) {
             </button>
           </div>
         )}
+
+        <div className="pt-2 border-t border-neon-purple/15">
+          <div className="text-[10px] uppercase tracking-widest text-purple-200/50 mb-1.5">
+            Guides
+          </div>
+          <div className="flex flex-wrap gap-x-3 gap-y-1 text-[12px]">
+            <Link
+              href="/gta-6-map"
+              className="text-neon-teal hover:underline"
+            >
+              Map overview
+            </Link>
+            <Link
+              href="/gta-6-collectibles"
+              className="text-neon-teal hover:underline"
+            >
+              Collectibles
+            </Link>
+            <Link
+              href="/gta-6-locations"
+              className="text-neon-teal hover:underline"
+            >
+              Locations
+            </Link>
+          </div>
+        </div>
 
         <AdSlot slot="sidebar-bottom" />
       </div>

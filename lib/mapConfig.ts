@@ -53,6 +53,15 @@ export function gameXYToLatLng(xy: [number, number]): [number, number] {
   return [-y / scale, x / scale];
 }
 
+/** Inverse of gameXYToLatLng — useful for click handlers and measure tools. */
+export function latLngToGameXY(latlng: {
+  lat: number;
+  lng: number;
+}): [number, number] {
+  const scale = Math.pow(2, mapConfig.maxZoom);
+  return [latlng.lng * scale, -latlng.lat * scale];
+}
+
 /** Static image bounds in LatLng space, used to constrain the map view. */
 export function imageBoundsLatLng(): [[number, number], [number, number]] {
   const scale = Math.pow(2, mapConfig.maxZoom);

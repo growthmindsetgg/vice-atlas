@@ -1,0 +1,44 @@
+{
+  "name": "Vice Atlas — Interactive GTA 6 Map",
+  "short_name": "Vice Atlas",
+  "description": "The unofficial interactive GTA 6 map. Collectibles, businesses, stunt jumps, gang hideouts, and easter eggs across Vice City.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0414",
+  "theme_color": "#0a0414",
+  "categories": ["games", "entertainment", "navigation"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Collectibles guide",
+      "url": "/gta-6-collectibles",
+      "description": "Every GTA 6 collectible, mapped"
+    },
+    {
+      "name": "Locations guide",
+      "url": "/gta-6-locations",
+      "description": "Key locations across GTA 6"
+    }
+  ]
+}

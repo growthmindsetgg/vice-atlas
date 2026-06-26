@@ -12,6 +12,10 @@ export type MarkerFeature = {
     name: string;
     category: CategoryKey;
     description?: string;
+    /** Optional in-game screenshot or render shown in the detail panel. */
+    image?: string;
+    /** Optional real-world reference photo for the before/after slider. */
+    realImage?: string;
   };
 };
 

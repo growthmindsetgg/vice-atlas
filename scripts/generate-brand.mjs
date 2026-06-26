@@ -122,6 +122,25 @@ function pinSVG(size, includeBg) {
   </svg>`;
 }
 
+function placeholderSampleSVG(label, [c1, c2]) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${c1}" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="${c2}" stop-opacity="0.4"/>
+      </linearGradient>
+      <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="1.2" fill="rgba(255,255,255,0.08)"/>
+      </pattern>
+    </defs>
+    <rect width="800" height="450" fill="#0a0414"/>
+    <rect width="800" height="450" fill="url(#bg)"/>
+    <rect width="800" height="450" fill="url(#dots)"/>
+    <text x="400" y="240" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="100" font-weight="900" fill="rgba(255,255,255,0.95)" letter-spacing="-1">${label}</text>
+    <text x="400" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">PLACEHOLDER</text>
+  </svg>`;
+}
+
 async function writePng(svg, outPath, density = 300) {
   await fs.mkdir(path.dirname(outPath), { recursive: true });
   await sharp(Buffer.from(svg), { density })
@@ -142,6 +161,34 @@ async function main() {
     pinSVG(180, true),
     path.join(PROJECT_ROOT, "app", "apple-icon.png"),
     300
+  );
+  // PWA manifest icons
+  await writePng(
+    pinSVG(192, true),
+    path.join(PROJECT_ROOT, "public", "icon-192.png"),
+    300
+  );
+  await writePng(
+    pinSVG(512, true),
+    path.join(PROJECT_ROOT, "public", "icon-512.png"),
+    300
+  );
+  // Maskable variant (full-bleed safe zone) — same shape, no rounded corners
+  await writePng(
+    pinSVG(512, false),
+    path.join(PROJECT_ROOT, "public", "icon-512-maskable.png"),
+    300
+  );
+  // Placeholder before/after images (one example marker uses these)
+  await writePng(
+    placeholderSampleSVG("IN-GAME", ["#ff2bd6", "#8a2be2"]),
+    path.join(PROJECT_ROOT, "public", "placeholders", "in-game-sample.png"),
+    144
+  );
+  await writePng(
+    placeholderSampleSVG("REAL LIFE", ["#19f0d0", "#00e5ff"]),
+    path.join(PROJECT_ROOT, "public", "placeholders", "real-life-sample.png"),
+    144
   );
   console.log("Done.");
 }

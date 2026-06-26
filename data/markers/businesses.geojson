@@ -8,7 +8,9 @@
         "id": "biz-001",
         "name": "Malibu Club",
         "category": "businesses",
-        "description": "Nightclub asset. Daily income once secured."
+        "description": "Nightclub asset. Daily income once secured.",
+        "image": "/placeholders/in-game-sample.png",
+        "realImage": "/placeholders/real-life-sample.png"
       }
     },
     {
